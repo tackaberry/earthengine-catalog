@@ -111,22 +111,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
     gsd: [30],
     'eo:bands': [
       {
-        name: 'nfiLandCover',
-        description: 'NFI land cover class values: Land cover classes include Bryoid (1), Herbs (2), Rock (3), Shrub (4), 
-                        Treed broadleaf (5), Treed conifer (6), Treed mixed (7) and  Water (8)',
-        // Only for bands with enumerated values.
-        'gee:classes': [
-          { value: 1, color: 'e64bfa', description: 'Bryoid' },
-          { value: 2, color: 'e7e56c', description: 'Herbs' },
-          { value: 3, color: '000000', description: 'Rock' },
-          { value: 4, color: 'bd0006', description: 'Shrub' },
-          { value: 5, color: '95ea4b', description: 'Treed broadleaf' },
-          { value: 6, color: '048e4e', description: 'Coniferous' },
-          { value: 7, color: '16d132', description: 'Treed mixed' },
-          { value: 8, color: '3be5ff', description: 'Water' },
-        ],
-      },
-      {
         name: 'biomass',
         description: 'Aboveground tree biomass (tons/ha): biomass derived from total merchantable volume estimates produced by provincial agencies',
         // gsd: 15,  // Pixel size (ground sample distance). Value is in meters.
@@ -141,15 +125,31 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': units.tonnes_per_hectare,
       },
       {
+        name: 'closure',
+        description: 'Crown closure (%): percentage of pixel covered by the tree canopy',
+        'gee:units': units.percent,
+      },      
+      {
         name: 'height',
         description: 'Height (meters): vegetation height',
         'gee:units': units.meter,
       },
       {
-        name: 'closure',
-        description: 'Crown closure (%): percentage of pixel covered by the tree canopy',
-        'gee:units': units.percent,
-      },
+        name: 'nfiLandCover',
+        description: 'NFI land cover class values: Land cover classes include Bryoid (1), Herbs (2), Rock (3), Shrub (4), 
+                        Treed broadleaf (5), Treed conifer (6), Treed mixed (7) and  Water (8)',
+        // Only for bands with enumerated values.
+        'gee:classes': [
+          { value: 1, color: 'e64bfa', description: 'Bryoid' },
+          { value: 2, color: 'e7e56c', description: 'Herbs' },
+          { value: 3, color: '000000', description: 'Rock' },
+          { value: 4, color: 'bd0006', description: 'Shrub' },
+          { value: 5, color: '95ea4b', description: 'Treed broadleaf' },
+          { value: 6, color: '048e4e', description: 'Coniferous' },
+          { value: 7, color: '16d132', description: 'Treed mixed' },
+          { value: 8, color: '3be5ff', description: 'Water' },
+        ],
+      },      
       {
         name: 'balsamFir',
         description: 'Balsam fir (%): estimated as the proportion of the canopy covered by Abies balsamea',
@@ -181,6 +181,16 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
         'gee:units': units.percent,
       },
       {
+        name: 'prcB',
+        description: 'Broadleaf tree cover in percentage (PrcB)',
+        'gee:units': units.percent,
+      },
+      {
+        name: 'prcC',
+        description: 'Other coniferous tree cover in percentage (PrcC)',
+        'gee:units': units.percent,
+      },      
+      {
         name: 'tamarack',
         description: 'Tamarack_tree (%): estimated as the proportion of the canopy covered by Larix laricina',
         'gee:units': units.percent,
@@ -188,16 +198,6 @@ local self_ee_catalog_url = ee_const.ee_catalog_url + basename;
       {
         name: 'whiteRedPine',
         description: 'White and red pine (%): estimated as the proportion of the canopy covered by Pinus strobus and Pinus resinosa',
-        'gee:units': units.percent,
-      },
-      {
-        name: 'prcB',
-        description: 'Broadleaf tree cover in percentage (PrcB)',
-        'gee:units': units.percent,
-      },
-      {
-        name: 'prcc',
-        description: 'Other coniferous tree cover in percentage (PrcC)',
         'gee:units': units.percent,
       },
       {
